@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LeerDatosPage } from '../pages/leer-datos/leer-datos';
 import { ProbarConexionPage } from '../pages/probar-conexion/probar-conexion';
+import { NumpadPage } from '../pages/numpad/numpad';
 import { LoginPage } from '../pages/login/login';
 
 
@@ -20,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     LeerDatosPage,
+    NumpadPage,
     ProbarConexionPage,
     LoginPage
   ],
@@ -31,6 +33,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
+    NumpadPage,
     ListPage,
     LeerDatosPage,
     ProbarConexionPage,

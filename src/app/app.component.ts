@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 //import { ListPage } from '../pages/list/list';
 import { LeerDatosPage } from '../pages/leer-datos/leer-datos';
 import { ProbarConexionPage } from '../pages/probar-conexion/probar-conexion';
+import { NumpadPage } from '../pages/numpad/numpad';
+
 
 import { LoginPage } from '../pages/login/login';
 
@@ -28,7 +30,8 @@ export class MyApp {
     this.pages = [            
       { title: 'Home', component: HomePage },
       { title: 'Probar Conexion', component: ProbarConexionPage },
-      { title: 'Leer Datos', component: LeerDatosPage }
+      { title: 'Leer Datos', component: LeerDatosPage },
+      { title: 'Numpad', component: NumpadPage }
     ];
 
   }

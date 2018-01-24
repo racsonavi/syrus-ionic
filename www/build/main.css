@@ -25733,3 +25733,32 @@ page-login .login-content .register-btn {
   color: #ffffff;
   font-size: 0.8em;
 }
+
+.numpad-result h4 {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  line-height: 40px;
+  font-size: 30px;
+  margin-top: -20px;
+}
+
+.numpad-result {
+  height: 30%;
+  position: relative;
+}
+
+.numpad-numbers {
+  height: 70%;
+  display: block;
+}
+
+.numpad-numbers .row {
+  height: 20%;
+}
+
+.btn {
+  height: 50px;
+  width: 95px;
+  border: 1px;
+}
