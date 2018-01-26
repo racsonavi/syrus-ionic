@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController,  AlertController, LoadingController, Loading } from 'ionic-angular';
 //NavParams
 import { HomePage } from '../home/home';
+import { ErpApiProvider } from '../../providers/erp-api/erp-api';
+import { Input } from '@angular/core';
 /**
  * Generated class for the LoginPage page.
  *
@@ -13,15 +15,18 @@ import { HomePage } from '../home/home';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
+  providers: [ErpApiProvider]
   
   
 })
 export class LoginPage {
-
+  @Input () username: string="olopez";
+  @Input () password: string="GCC0MERCE321";
   loading: Loading;
+  //allowed:any;
   /*constructor(public navCtrl: NavController, public navParams: NavParams) {
   }*/
-  constructor(private nav: NavController, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
+  constructor(private nav: NavController, private alertCtrl: AlertController, private loadingCtrl: LoadingController, private erpService: ErpApiProvider) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -48,18 +53,26 @@ export class LoginPage {
 
   public login() {
     this.showLoading()
-    /*this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {        */
+
+    //this.erpService.validaLogin(this.username, this.password);
+
+    this.erpService.validaLogin(this.username, this.password).subscribe(allowed => {
+      console.log(allowed+'<------');
+    if (allowed) {      
         this.nav.setRoot(HomePage);
-      /*} else {
-        this.showError("Access Denied");
-      }
+        this.showError("Acceso Autorizado");
+       //console.log('acceso autorizado');
+      } else {
+        this.showError("Acceso Denegado");
+      }      
     },
       error => {
-        this.showError(error);
-      });*/
+        //this.showError(error);
+        console.log(error);
+      });
 
-      this.showError("Acceso denegado");
+      //this.showError("Acceso denegado");
+     
   }
 
 }

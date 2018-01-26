@@ -9,11 +9,13 @@ import { LeerDatosPage } from '../pages/leer-datos/leer-datos';
 import { ProbarConexionPage } from '../pages/probar-conexion/probar-conexion';
 import { NumpadPage } from '../pages/numpad/numpad';
 import { LoginPage } from '../pages/login/login';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ErpApiProvider } from '../providers/erp-api/erp-api';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -42,7 +46,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ErpApiProvider
   ]
 })
 export class AppModule {}
