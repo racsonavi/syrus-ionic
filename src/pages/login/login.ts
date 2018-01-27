@@ -16,16 +16,13 @@ import { Input } from '@angular/core';
   selector: 'page-login',
   templateUrl: 'login.html',
   providers: [ErpApiProvider]
-  
-  
 })
+
 export class LoginPage {
   @Input () username: string="olopez";
   @Input () password: string="GCC0MERCE321";
   loading: Loading;
-  //allowed:any;
-  /*constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }*/
+  
   constructor(private nav: NavController, private alertCtrl: AlertController, private loadingCtrl: LoadingController, private erpService: ErpApiProvider) { }
 
   ionViewDidLoad() {
@@ -52,27 +49,16 @@ export class LoginPage {
   }
 
   public login() {
-    this.showLoading()
-
-    //this.erpService.validaLogin(this.username, this.password);
-
-    this.erpService.validaLogin(this.username, this.password).subscribe(allowed => {
-      console.log(allowed+'<------');
+    this.showLoading();
+    this.erpService.validaLogin(this.username, this.password).subscribe(allowed => {      
     if (allowed) {      
-        this.nav.setRoot(HomePage);
-        this.showError("Acceso Autorizado");
-       //console.log('acceso autorizado');
+        this.nav.setRoot(HomePage);        
       } else {
         this.showError("Acceso Denegado");
       }      
     },
-      error => {
-        //this.showError(error);
+      error => {        
         console.log(error);
       });
-
-      //this.showError("Acceso denegado");
-     
   }
-
 }
